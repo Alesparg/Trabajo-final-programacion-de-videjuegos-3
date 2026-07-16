@@ -153,7 +153,6 @@ ________________________________________
 [•	La idea de juego es caricaturesca, Sky es el personaje principal y tiene una imagen amigable.
 
 •	En el mundo intergaláctico se encuentran flotando cinco (5) esferas brillantes, que demarcan la progresión en los niveles, y cada una tiene su propia 
-
 ambientación. Esa ambientación se caracteriza por un color principal (ej. rojo) y un derivado del mismo (tonos más oscuros para hacer contraste de sombras, como el violeta). 
 
 •	El espacio interestelar es oscuro, pero la zona se ve constantemente iluminada por la presencia de meteoritos y por los recursos que se iluminan a la vista del jugador. De fondo pueden verse algunas estrellas fugaces o naves perdidas.
@@ -165,14 +164,13 @@ ambientación. Esa ambientación se caracteriza por un color principal (ej. rojo
 •	La presencia de eventos dinámicos (como tormentas) figuran como un globo de texto poco segundos antes de hacer presencia]. 
 
 
-
-	
-
-
-
-
-
 Pantalla de inicio: dispositivos móviles.
+
+<img width="635" height="953" alt="image" src="https://github.com/user-attachments/assets/61d4d672-25fd-44a0-ab52-572d2b0a7882" />
+
+<img width="982" height="1473" alt="image" src="https://github.com/user-attachments/assets/836ad123-29c2-4d43-9318-a8fc9ebecb19" />
+
+
 
 
 
