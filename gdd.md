@@ -19,13 +19,18 @@
 [Jugadores casuales entre 8 y 25 años que disfrutan de los videojuegos rápidos, con recompensas y mejoras inmediatas. Está pensado para quienes quieren una distracción rápida, con partidas cortas, y progresión en la dificultad de sus niveles]. 
  ### 1.3 – Ejemplos de Juegos Similares 
 [•	Asteroids: comparte la inclusión de meteoritos/asteroides en la filosofía de juego, siendo precisamente el objetivo sobrevivir y esquivarlos. Aunque es un juego sin ninguna narrativa detrás. 
+
 •	Subway Surfers: tienen en común la dinámica de juego que es recolectar y esquivar. Es un juego que también fue pensado para celulares y tiempos de juego cortos, y que a su vez incluye un sistema de mejoras (mejoras en el personaje, power ups, etc.) 
+
 •	Galaga: mismo contexto de juego (el espacio interestelar), de estilo arcade, y en donde se tiene que reaccionar con rapidez, siendo que si no se evita el impacto se pierden vidas de juego]. 
 
 ### 1.4 – Puntos Clave de Venta 
 [•	Es un juego sencillo y fácil de aprender, que abarca a un amplio rango etario de los jugadores.
+
 •	Partidas rápidas, que te permiten entretenerte en lapsos cortos y luego retomar donde lo dejaste. 
+
 •	Incremento constante en la dificultad: lo que mantiene al jugador atrapado en la dinámica y con esa necesidad de progresar. 
+
 •	Estética atractiva visualmente, sin perder la simpleza]. 
 
 ### 2 – Gameplay y Mecánicas 
@@ -42,62 +47,102 @@ Si el personaje robótico Sky es golpeado más de tres (3) veces por los meteoro
 ________________________________________
 ### 2.1 – Loop del Juego 
 [1.	El juego inicia con una breve presentación de Sky, el Robot protagonista. 
+
 2.	El jugador comienza una partida, y cuenta con un total de cinco (5) vidas, que son regeneradas a lo largo de 1 hora, o bien pueden obtenerse mediante pago si no se desea esperar.
-3.	Al iniciar el nivel, se indican en pantalla los recursos necesarios para superarlo y un temporizador. 
-4.	Durante la partida, el jugador debe recolectar dichos recursos, esquivando meteoritos.  
+   
+3.	Al iniciar el nivel, se indican en pantalla los recursos necesarios para superarlo y un temporizador.
+   
+4.	Durante la partida, el jugador debe recolectar dichos recursos, esquivando meteoritos.
+   
 5.	La dificultad aumenta progresivamente, tanto en su frecuencia de aparición como en su velocidad de impacto.
-6.	La partida finaliza si el jugador recibe más de tres (3) impactos de meteoros, o si se agota el tiempo sin alcanzar el objetivo de recursos, perdiendo la vida en ambos casos. 
-7.	Al completar el nivel, se le atribuyen al jugador recompensas (dinero intergaláctico). 
+   
+6.	La partida finaliza si el jugador recibe más de tres (3) impactos de meteoros, o si se agota el tiempo sin alcanzar el objetivo de recursos, perdiendo la vida en ambos casos.
+    
+7.	Al completar el nivel, se le atribuyen al jugador recompensas (dinero intergaláctico).
+    
 8.	El jugador puede gastar el dinero del juego en la tienda, en pro de adquirir mejoras.
-9.	Existen misiones complementarias, que son completadas con recursos especiales – que aparecen esporádicamente y con escasa frecuencia –. 
+    
+9.	Existen misiones complementarias, que son completadas con recursos especiales – que aparecen esporádicamente y con escasa frecuencia –.
+
 10.	 A medida que avanza el juego, aumentan los obstáculos, pero también mejoran las capacidades de Sky, como su velocidad de movimiento].  
 ________________________________________
 ### 2.2 – Sistema de Progresión y Árbol de Mejoras
 [El juego incorpora un árbol de mejoras que permite ampliar el gameplay y evitar la repetición constante de partidas idénticas. Al finalizar cada partida, el jugador obtiene:
-•	Una determinada cantidad de créditos/recompensas, el cual en la jerga del juego es conocido como “dinero intergaláctico”. El cual el jugador puede gastar libremente en la tienda, mejor conocida como “el Taller” – en el cual se accede al aludido árbol de mejoras. 
+
+•	Una determinada cantidad de créditos/recompensas, el cual en la jerga del juego es conocido como “dinero intergaláctico”. El cual el jugador puede gastar libremente en la tienda, mejor conocida como “el Taller” – en el cual se accede al aludido árbol de mejoras.
+
 •	Se le entregan los recursos raros que haya recolectados, que como se ha mencionado en el gameplay son de utilidad para completar misiones complementarias (según el tipo de recurso requerido por las mismas). 
+
 •	A su vez, ciertos niveles tienen preestablecidos la entrega de power ups sorpresa].
 ________________________________________
 **🌳 Ramas del Árbol de Mejoras**
+
 **🚀 Movilidad**
+
 [Mejoras enfocadas en la agilidad y control del personaje:
-•	Velocidad aumentada: incrementa la capacidad de desplazamiento y aumenta la probabilidad de que aparezcan recursos atípicos. 
+
+•	Velocidad aumentada: incrementa la capacidad de desplazamiento y aumenta la probabilidad de que aparezcan recursos atípicos.
+
 •	Visión del futuro: permite una vez por partida predecir el lugar de caída de los meteoritos, antes de que ocurra; es como un mapa previo de donde se estrellarán. 
+
 •	Propulsores: permite sobrevolar el terreno por unos segundos, sin ser atacado por los meteoros]. 
 ________________________________________
 **❤️ Supervivencia**
+
 [Mejoras enfocadas en resistir más tiempo:
+
 •	Vidas adicionales: sin tener que esperar el tiempo pautado para su regeneración.
+
 •	Escudo: repele las tormentas cósmicas.  
+
 •	Congelado: permite congelar el cronómetro de la partida, y seguir recolectando].
 ________________________________________
 **⚡ Recolección**
+
 [Mejoras orientadas a maximizar puntos y recompensas:
+
 •	Imán de recursos: atrae recursos sin tener que acercarse completamente.
+
 •	Ralentización temporal: disminuye la velocidad de todo alrededor, menos la de Sky para recolectar. 
+
 •	Onda de choque: aleja por unos segundos los meteoros del área].
 ________________________________________
 ### 2.3 – Power-Ups Temporales
+
 [Durante la partida pueden aparecer power-ups de duración limitada que alteran momentáneamente el gameplay:
+
 •	Fase espectral: Sky puede atravesar los meteoritos sin verse afectado por el impacto. 
+
 •	Vale doble: multiplica los recursos recolectados.
+
 •	Radar intergaláctico: aumenta la probabilidad de aparición de recursos especiales.
+
 •	Absorción energética: los meteoritos se transforman en recursos a medida que caen].
 ________________________________________
 ### 2.4 – Enemigos y Amenazas Variadas
+
 [Para ampliar la variedad de situaciones, el juego presenta distintos tipos de peligros:
+
 •	Meteoritos: pequeños y veloces, y que de impactar reducen la supervivencia de Sky.
+
 •	Drones rivales: existen en el universo intergaláctico personas malintencionadas, que quieren apropiarse de los recursos.
+
 •	Tormentas cósmicas: empujan a Sky y dificultan el control. Pueden subsanarse mediante la utilización del escudo. 
+
 •	Plagas orbitales: insectos infecciosos que se pegan a Sky y hacen que el tiempo del cronómetro corra más deprisa].
 ________________________________________
 
 
 ### 2.5 – Eventos Dinámicos
+
 [Durante la partida pueden activarse eventos aleatorios que modifican temporalmente el entorno:
+
 •	Niebla: una niebla repentina invade la pantalla de juego, reduciendo la visibilidad para recolectar.
+
 •	Inversión gravitatoria: cambia la dirección de caída de los meteoritos.
+
 •	Zonas inseguras temporales: aparición de recursos extremadamente raros, pero los meteoros duplican su tamaño, y con un solo impacto pueden acabar con Sky.
+
 •	Sobrecarga: todo comienza a moverse al doble de su velocidad habitual]. 
 ________________________________________
 ### 2.6 – Impacto en la Experiencia de Juego
@@ -106,10 +151,17 @@ ________________________________________
 [De esta manera se evita la monotonía y que una partida sea igual a otra. A su vez, el jugador dispone de un amplio árbol de mejoras que puede utilizar a su antojo, sumado a que las partidas son rejugables (permitiéndole ganar experiencia y tomar decisiones estratégicas)]. 
 ### 3 – Arte 
 [•	La idea de juego es caricaturesca, Sky es el personaje principal y tiene una imagen amigable.
-•	En el mundo intergaláctico se encuentran flotando cinco (5) esferas brillantes, que demarcan la progresión en los niveles, y cada una tiene su propia ambientación. Esa ambientación se caracteriza por un color principal (ej. rojo) y un derivado del mismo (tonos más oscuros para hacer contraste de sombras, como el violeta). 
+
+•	En el mundo intergaláctico se encuentran flotando cinco (5) esferas brillantes, que demarcan la progresión en los niveles, y cada una tiene su propia 
+
+ambientación. Esa ambientación se caracteriza por un color principal (ej. rojo) y un derivado del mismo (tonos más oscuros para hacer contraste de sombras, como el violeta). 
+
 •	El espacio interestelar es oscuro, pero la zona se ve constantemente iluminada por la presencia de meteoritos y por los recursos que se iluminan a la vista del jugador. De fondo pueden verse algunas estrellas fugaces o naves perdidas.
-•	Los meteoritos son pelotas ovaladas con incrustaciones.  
+
+•	Los meteoritos son pelotas ovaladas con incrustaciones. 
+
 •	Los power ups aparecen en pantalla como una insignia dorada, como si fueran parches a coser en el traje espacial. 
+
 •	La presencia de eventos dinámicos (como tormentas) figuran como un globo de texto poco segundos antes de hacer presencia]. 
 
 
@@ -151,11 +203,14 @@ Una vez dentro del nivel, la pantalla muestra los recursos necesarios para compl
 
 ### 6 – Música 
 [•	Cada partida tiene un sonido tenue de fondo. 
+
 •	Cuando los meteoros alcanzan a Sky se escucha un estruendo por el impacto.
+
 •	Las situaciones de tensión o eventos dinámicos son acompañados musicalmente: algunos ejemplos,
 ­	la niebla (se escucha como susurro o viento), 
-­	zonas inseguras (alarma),
-­	sobrecarga (se escuchan como chispazos).
+­	zonas inseguras (alarma), sobrecarga (se escuchan como chispazos).
+
 •	Al recolectar un recurso especial se escucha un tintineo por la recompensa].
+
 
 
