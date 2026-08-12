@@ -1,0 +1,10 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8metalboxspawner"]
+
+[ext_resource type="Script" path="res://objects/metal_box_spawner.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://c8metalbox01scene" path="res://objects/metal_box.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://c8copperbox01scene" path="res://objects/copper_box.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://c8goldbox01scene" path="res://objects/gold_box.tscn" id="4"]
+
+[node name="metal_box_spawner" type="Node2D"]
+script = ExtResource("1")
+collectible_scenes = Array[PackedScene]([ExtResource("2"), ExtResource("3"), ExtResource("4")])

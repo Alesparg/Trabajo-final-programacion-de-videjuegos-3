@@ -1,0 +1,236 @@
+[gd_scene format=3 uid="uid://colworld3scene"]
+
+[ext_resource type="Script" uid="uid://s6xxji1hupqd" path="res://main/colworld.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://s2s6hxvjn3m0" path="res://characters/player/player.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://cne50wqrctu0x" path="res://levels/level3.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://cqcx3hs82qs7f" path="res://objects/meteor_spawner.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://cniurscd3bien" path="res://objects/metal_box_spawner.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://c8esmeraldaspawner" path="res://objects/esmeralda_spawner.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://c8meteorlargospawner" path="res://objects/meteor_largo_spawner.tscn" id="8"]
+[ext_resource type="PackedScene" uid="uid://c8diamantespawner" path="res://objects/diamante_spawner.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://c8meteornegrospawner" path="res://objects/meteor_negro_spawner.tscn" id="10"]
+[ext_resource type="PackedScene" uid="uid://c8powerupspawner" path="res://objects/power_up_spawner.tscn" id="11"]
+
+[sub_resource type="Gradient" id="Gradient_c13v1"]
+colors = PackedColorArray(0, 0, 0, 1, 0.176419, 0.176419, 0.176419, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hx43j"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cbgvf"]
+noise = SubResource("FastNoiseLite_hx43j")
+color_ramp = SubResource("Gradient_c13v1")
+seamless = true
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_jqwpe"]
+mie_eccentricity = 0.9
+night_sky = SubResource("NoiseTexture2D_cbgvf")
+
+[sub_resource type="Sky" id="2"]
+sky_material = SubResource("PhysicalSkyMaterial_jqwpe")
+process_mode = 3
+
+[sub_resource type="Environment" id="3"]
+background_mode = 2
+background_energy_multiplier = 2.52
+sky = SubResource("2")
+
+[sub_resource type="Animation" id="Animation_grnio"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jvcpy"]
+resource_name = "sun_rotation"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(":rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.53333, 5, 7.5, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.5708, 0, 0), Vector3(3.14159, 0, 0), Vector3(4.71239, 0, 0), Vector3(6.28319, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uij0m"]
+_data = {
+&"RESET": SubResource("Animation_grnio"),
+&"sun_rotation": SubResource("Animation_jvcpy")
+}
+
+[node name="colworld" type="Node2D" unique_id=59333006]
+script = ExtResource("1")
+player_scene = ExtResource("2")
+
+[node name="player" parent="." unique_id=155957934 instance=ExtResource("2")]
+position = Vector2(144.134, 874.312)
+floor_snap_length = 5.0
+FLOOR_ANGLE_TOLERANCE = 10.0
+JUMP_SPEED = 350.0
+
+[node name="death_counter" type="Label" parent="." unique_id=619899802]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 457.0
+offset_top = 68.0
+offset_right = 536.0
+offset_bottom = 91.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Deaths: 0"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="score_counter" type="Label" parent="." unique_id=1278237719]
+offset_left = 275.0
+offset_top = 68.0
+offset_right = 390.0
+offset_bottom = 91.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.75, 0.8, 0.85, 1)
+text = "Puntos: 0000"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="timer_counter" type="Label" parent="." unique_id=548247352]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 600.0
+offset_top = 68.0
+offset_right = 680.0
+offset_bottom = 91.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 0.85, 0.4, 1)
+text = "02:00"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 690.0
+offset_top = 68.0
+offset_right = 790.0
+offset_bottom = 91.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+value = 100.0
+show_percentage = false
+tint_progress = Color(0, 1, 0, 1)
+
+[node name="GameOverMenu" type="CanvasLayer" parent="." unique_id=1714290794]
+layer = 10
+visible = false
+
+[node name="Overlay" type="ColorRect" parent="GameOverMenu" unique_id=1281267430]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.07, 0.12, 0.82)
+
+[node name="CenterContainer" type="CenterContainer" parent="GameOverMenu" unique_id=463221530]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverMenu/CenterContainer" unique_id=828618670]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Title" type="Label" parent="GameOverMenu/CenterContainer/VBoxContainer" unique_id=2120085551]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 36
+text = "Partida terminada"
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="GameOverMenu/CenterContainer/VBoxContainer" unique_id=639189385]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.4, 1)
+theme_override_font_sizes/font_size = 28
+text = "Puntuación: 0"
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="GameOverMenu/CenterContainer/VBoxContainer" unique_id=1480131020]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="RetryButton" type="Button" parent="GameOverMenu/CenterContainer/VBoxContainer/Buttons" unique_id=1939033205]
+custom_minimum_size = Vector2(160, 44)
+layout_mode = 2
+text = "Volver a jugar"
+
+[node name="ExitButton" type="Button" parent="GameOverMenu/CenterContainer/VBoxContainer/Buttons" unique_id=1788195263]
+custom_minimum_size = Vector2(160, 44)
+layout_mode = 2
+text = "Salir"
+
+[node name="level" parent="." unique_id=1095493898 instance=ExtResource("4")]
+texture_repeat = 2
+
+[node name="meteor_spawner" parent="." unique_id=1688758669 instance=ExtResource("5")]
+
+[node name="metal_box_spawner" parent="." unique_id=28571047 instance=ExtResource("6")]
+
+[node name="esmeralda_spawner" parent="." instance=ExtResource("7")]
+
+[node name="meteor_largo_spawner" parent="." unique_id=999999999 instance=ExtResource("8")]
+
+[node name="diamante_spawner" parent="." instance=ExtResource("9")]
+
+[node name="meteor_negro_spawner" parent="." instance=ExtResource("10")]
+
+[node name="power_up_spawner" parent="." instance=ExtResource("11")]
+
+[node name="player_spawn" type="Marker2D" parent="." unique_id=1714736681]
+position = Vector2(143.423, 886.677)
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1879271490]
+
+[node name="Camera3D" type="Camera3D" parent="Node3D" unique_id=1916276590]
+environment = SubResource("3")
+
+[node name="Node3D" type="Node3D" parent="Node3D" unique_id=127957580]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Node3D/Node3D" unique_id=409078504]
+transform = Transform3D(-0.464834, -0.728576, 0.503098, -0.826339, 0.561038, 0.0489941, -0.317953, -0.392955, -0.86284, 0, 0, 0)
+rotation_edit_mode = 1
+light_color = Color(1, 1, 0.615686, 1)
+shadow_enabled = true
+sky_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node3D/Node3D" unique_id=533360661]
+libraries/ = SubResource("AnimationLibrary_uij0m")
+autoplay = &"sun_rotation"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=855932133]
+anchor_mode = 0
+zoom = Vector2(0.76, 0.76)
+process_callback = 0

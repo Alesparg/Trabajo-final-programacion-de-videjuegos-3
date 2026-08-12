@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://8k50tbdye3k1"]
+
+[node name="Node" type="Control" unique_id=1663580570]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="guardar_como_escena" type="Label" parent="." unique_id=870381846]
+layout_mode = 0
+offset_left = 542.0
+offset_top = 5.0
+offset_right = 889.0
+offset_bottom = 53.0
+pivot_offset = Vector2(173.5, 47)
+size_flags_vertical = 0
+text = "Pueden crear subestructuras sobre una misma escena
+Luego click derecho en el nodo principal del grupo
+Guardar rama como escena para separarla"
+
+[node name="problemas_de_la_fisica" type="Label" parent="." unique_id=1632685577]
+layout_mode = 0
+offset_left = 542.0
+offset_top = 5.0
+offset_right = 889.0
+offset_bottom = 53.0
+pivot_offset = Vector2(173.5, 47)
+size_flags_vertical = 0
+text = "Pueden crear subestructuras sobre una misma escena
+Luego click derecho en el nodo principal del grupo
+Guardar rama como escena para separarla"
+
+[node name="variables_exportadas" type="Label" parent="." unique_id=894573166]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 519.0
+offset_right = 352.0
+offset_bottom = 567.0
+size_flags_vertical = 0
+text = "El nodo player tiene todas las variables exportadas
+Pero conviene sólo las que tengan sentido para diseñadores"
+
+[node name="animation_player" type="Label" parent="." unique_id=893159227]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 183.0
+offset_right = 468.0
+offset_bottom = 231.0
+size_flags_vertical = 0
+text = "AnimationPlayers son como Tweens interactivos
+Pueden animar cualquier parámetro de un Object"
+
+[node name="tool_mode" type="Label" parent="." unique_id=1380163007]
+layout_mode = 0
+offset_left = -330.0
+offset_top = 370.0
+offset_right = 54.0
+offset_bottom = 418.0
+size_flags_vertical = 0
+text = "Tool mode usado en modo muy simple
+La información visual puede ayudar a diseñadores
+Se puede ejecutar código complejo en tool mode"
+
+[node name="referencias" type="Label" parent="." unique_id=541075739]
+layout_mode = 0
+offset_left = -407.0
+offset_top = 666.0
+offset_right = -18.0
+offset_bottom = 741.0
+size_flags_vertical = 0
+text = "Tool mode usado en modo muy simple
+La información visual puede ayudar a diseñadores
+Se puede ejecutar código complejo en tool mode"
+
+[node name="tool_mode_2" type="Label" parent="." unique_id=1446419099]
+layout_mode = 0
+offset_left = -387.0
+offset_top = 443.0
+offset_right = -3.0
+offset_bottom = 491.0
+size_flags_vertical = 0
+text = "En algunos casos, para que un nuevo script en tool mode inicie
+Hay que recargar el proyecto"
+
+[node name="placeholders" type="Label" parent="." unique_id=1671689905]
+layout_mode = 0
+offset_left = -566.0
+offset_top = 4.0
+offset_right = -31.0
+offset_bottom = 52.0
+size_flags_vertical = 0
+text = "Los comentarios están cargados como temporales (placeholder)
+Esto permite que estén reemplazados por un InstancePlaceholder en runtime
+El InstancePlaceholder se puede revertir a la escena original en cualqueir momento"
+
+[node name="grupos" type="Label" parent="." unique_id=904020962]
+layout_mode = 0
+offset_left = 33.0
+offset_top = -76.0
+offset_right = 568.0
+offset_bottom = -28.0
+size_flags_vertical = 0
+text = "El único grupo usado aquí es el Player
+Los grupos son muy útiles como vieron en la documentación"
+
+[node name="proyecto" type="Label" parent="." unique_id=210257562]
+layout_mode = 0
+offset_left = 558.0
+offset_top = 236.0
+offset_right = 1139.0
+offset_bottom = 301.0
+size_flags_vertical = 0
+text = "La estructura para proyectos recomendada en Godot es aproximadamente como la de este
+
+Cada objeto en un directorio que lo represente, junto con sus scripts y assets
+Puede sonar raro pero termina siendo mucho más ordenado cuando el proyecto crece"

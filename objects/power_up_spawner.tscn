@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8powerupspawner"]
+
+[ext_resource type="Script" path="res://objects/power_up_spawner.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://c8powerup01scene" path="res://objects/power_up.tscn" id="2"]
+
+[node name="power_up_spawner" type="Node2D"]
+script = ExtResource("1")
+power_up_scene = ExtResource("2")
