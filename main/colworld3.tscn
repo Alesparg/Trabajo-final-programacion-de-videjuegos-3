@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://c8diamantespawner" path="res://objects/diamante_spawner.tscn" id="9"]
 [ext_resource type="PackedScene" uid="uid://c8meteornegrospawner" path="res://objects/meteor_negro_spawner.tscn" id="10"]
 [ext_resource type="PackedScene" uid="uid://c8powerupspawner" path="res://objects/power_up_spawner.tscn" id="11"]
+[ext_resource type="PackedScene" uid="uid://c8faseespectralspawner" path="res://objects/fase_espectral_spawner.tscn" id="12"]
+[ext_resource type="PackedScene" uid="uid://c8upgrademenu" path="res://ui/upgrade_menu.tscn" id="13"]
 
 [sub_resource type="Gradient" id="Gradient_c13v1"]
 colors = PackedColorArray(0, 0, 0, 1, 0.176419, 0.176419, 0.176419, 1)
@@ -208,6 +210,10 @@ texture_repeat = 2
 [node name="meteor_negro_spawner" parent="." instance=ExtResource("10")]
 
 [node name="power_up_spawner" parent="." instance=ExtResource("11")]
+
+[node name="fase_espectral_spawner" parent="." instance=ExtResource("12")]
+
+[node name="UpgradeMenu" parent="." instance=ExtResource("13")]
 
 [node name="player_spawn" type="Marker2D" parent="." unique_id=1714736681]
 position = Vector2(143.423, 886.677)

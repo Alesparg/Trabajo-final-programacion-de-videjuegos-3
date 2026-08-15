@@ -14,6 +14,8 @@ var spawn_point = Vector2()
 @onready var game_over_score: Label = $GameOverMenu/CenterContainer/VBoxContainer/ScoreLabel
 var victory_menu: CanvasLayer
 var victory_score: Label
+var upgrade_menu: CanvasLayer
+var upgrade_system: Node
 var deaths_value = 0
 var score_value = 0
 var time_remaining = MATCH_DURATION
@@ -22,12 +24,16 @@ var deaths_string = "Deaths: %0*d"
 var score_string = "Puntos: %0*d"
 
 func _ready():
+	# Inicializar sistema de mejoras
+	_initialize_upgrade_system()
+	
 	#no es el mejor modo, puede obtener una referencia directamente
 	var player_group = get_tree().get_nodes_in_group("player")
 	if player_group.size()>0:
 		spawn_point = $player_spawn.global_position
 		(player_group[0] as Player).im_dead.connect(_on_player_dead)
 		(player_group[0] as Player).health_changed.connect(_on_health_changed)
+		_apply_unlocked_upgrades(player_group[0] as Player)
 	$metal_box_spawner.metal_box_caught.connect(_on_metal_box_caught)
 	if has_node("esmeralda_spawner"):
 		$esmeralda_spawner.esmeralda_caught.connect(_on_esmeralda_caught)
@@ -35,6 +41,8 @@ func _ready():
 		$diamante_spawner.diamante_caught.connect(_on_diamante_caught)
 	if has_node("power_up_spawner"):
 		$power_up_spawner.power_up_collected.connect(_on_power_up_collected)
+	if has_node("fase_espectral_spawner"):
+		$fase_espectral_spawner.fase_espectral_collected.connect(_on_fase_espectral_collected)
 	death_counter.text = deaths_string%[3,deaths_value]
 	score_counter.text = score_string%[4,score_value]
 	timer_counter.text = _format_time(time_remaining)
@@ -44,6 +52,9 @@ func _ready():
 		victory_menu = $VictoryMenu
 		victory_score = $VictoryMenu/CenterContainer/VBoxContainer/ScoreLabel
 		victory_menu.hide()
+	if has_node("UpgradeMenu"):
+		upgrade_menu = $UpgradeMenu
+		upgrade_menu.hide()
 	$GameOverMenu/CenterContainer/VBoxContainer/Buttons/RetryButton.pressed.connect(_on_retry_pressed)
 	$GameOverMenu/CenterContainer/VBoxContainer/Buttons/ExitButton.pressed.connect(_on_exit_pressed)
 	if has_node("VictoryMenu"):
@@ -54,6 +65,26 @@ func _ready():
 		$VictoryMenu/CenterContainer/VBoxContainer/Buttons/ExitButton.pressed.connect(_on_exit_pressed)
 	#Si no se carga como placeholder
 	#$comments.hide()
+
+func _initialize_upgrade_system():
+	var upgrade_system_scene = load("res://systems/upgrade_system.gd")
+	if upgrade_system_scene:
+		upgrade_system = upgrade_system_scene.new()
+		add_child(upgrade_system)
+		
+		if has_node("UpgradeMenu"):
+			upgrade_menu = $UpgradeMenu
+			upgrade_menu.set_upgrade_system(upgrade_system)
+			upgrade_menu.upgrade_selected.connect(_on_upgrade_selected)
+			upgrade_menu.menu_closed.connect(_on_upgrade_menu_closed)
+
+func _apply_unlocked_upgrades(player: Player):
+	if not upgrade_system:
+		return
+	
+	for upgrade_id in upgrade_system.upgrades.keys():
+		if upgrade_system.is_upgrade_unlocked(upgrade_id):
+			upgrade_system.apply_upgrade_to_player(upgrade_id, player)
 
 func _process(delta):
 	if game_over:
@@ -100,10 +131,33 @@ func _on_exit_pressed():
 	get_tree().quit()
 
 func _on_level2_pressed():
-	get_tree().change_scene_to_file("res://main/colworld2.tscn")
+	_show_upgrade_menu_before_level_change("res://main/colworld2.tscn")
 
 func _on_level3_pressed():
-	get_tree().change_scene_to_file("res://main/colworld3.tscn")
+	_show_upgrade_menu_before_level_change("res://main/colworld3.tscn")
+
+func _show_upgrade_menu_before_level_change(next_level_path: String):
+	if upgrade_menu and upgrade_system:
+		var available_upgrades = upgrade_system.get_available_upgrades()
+		if available_upgrades.size() > 0:
+			# Hay mejoras disponibles, mostrar menú
+			var player_group = get_tree().get_nodes_in_group("player")
+			if player_group.size() > 0:
+				upgrade_menu.set_player(player_group[0] as Player)
+				upgrade_menu.show_menu()
+				# Guardar el nivel destino para cambiar después de seleccionar mejora
+				_next_level_path = next_level_path
+				return
+	
+	# No hay mejoras disponibles, cambiar directamente de nivel
+	get_tree().change_scene_to_file(next_level_path)
+
+var _next_level_path: String = ""
+
+func _on_upgrade_menu_closed():
+	if _next_level_path != "":
+		get_tree().change_scene_to_file(_next_level_path)
+		_next_level_path = ""
 
 func _on_player_dead(): 
 	if game_over:
@@ -150,3 +204,14 @@ func _on_power_up_collected():
 	if player_group.size() > 0:
 		var player = player_group[0] as Player
 		player.activate_speed_boost()
+
+func _on_fase_espectral_collected():
+	if game_over:
+		return
+	var player_group = get_tree().get_nodes_in_group("player")
+	if player_group.size() > 0:
+		var player = player_group[0] as Player
+		player.activate_spectral_phase()
+
+func _on_upgrade_selected(upgrade_id: String):
+	print("Mejora seleccionada: ", upgrade_id)

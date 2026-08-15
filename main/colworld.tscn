@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cne50wqrctu0x" path="res://levels/level1.tscn" id="4"]
 [ext_resource type="PackedScene" uid="uid://cqcx3hs82qs7f" path="res://objects/meteor_spawner.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://cniurscd3bien" path="res://objects/metal_box_spawner.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://c8upgrademenu" path="res://ui/upgrade_menu.tscn" id="7"]
 
 [sub_resource type="Gradient" id="Gradient_c13v1"]
 colors = PackedColorArray(0, 0, 0, 1, 0.176419, 0.176419, 0.176419, 1)
@@ -245,6 +246,8 @@ texture_repeat = 2
 [node name="meteor_spawner" parent="." unique_id=1688758669 instance=ExtResource("5")]
 
 [node name="metal_box_spawner" parent="." unique_id=28571047 instance=ExtResource("6")]
+
+[node name="UpgradeMenu" parent="." instance=ExtResource("7")]
 
 [node name="player_spawn" type="Marker2D" parent="." unique_id=1714736681]
 position = Vector2(143.423, 886.677)

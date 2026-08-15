@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c40fi8rpway82"]
+
+[ext_resource type="Script" path="res://objects/fase_espectral_spawner.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://c8faseespectral01scene" path="res://objects/fase_espectral.tscn" id="2"]
+
+[node name="fase_espectral_spawner" type="Node2D"]
+script = ExtResource("1")
+fase_espectral_scene = ExtResource("2")

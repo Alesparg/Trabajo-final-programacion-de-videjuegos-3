@@ -53,6 +53,18 @@ func activate_speed_boost():
 	WALK_FORCE = base_walk_force * 2.0
 	WALK_MAX_SPEED = base_walk_max_speed * 2.0
 
+# Sistema de fase espectral (invulnerabilidad)
+var spectral_phase_timer: float = 0.0
+var spectral_phase_duration: float = 10.0
+var is_spectral: bool = false
+
+func activate_spectral_phase():
+	is_spectral = true
+	spectral_phase_timer = spectral_phase_duration
+
+func is_invulnerable():
+	return is_spectral
+
 func _ready():
 	if Engine.is_editor_hint(): #para que haga draw sólo en tool mode
 		jump_curve.resize(5)
@@ -75,6 +87,12 @@ func _physics_process(delta):
 			has_speed_boost = false
 			WALK_FORCE = base_walk_force
 			WALK_MAX_SPEED = base_walk_max_speed
+	
+	# Manejar timer de fase espectral
+	if is_spectral:
+		spectral_phase_timer -= delta
+		if spectral_phase_timer <= 0.0:
+			is_spectral = false
 	
 	# Create forces
 	var accel = Vector2(0, GRAVITY)
