@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://c8levelguide"]
+
+[ext_resource type="Script" uid="uid://b56gy3bm46b8a" path="res://ui/level_guide.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://n852p2q63clq" path="res://objects/robot_señalando.png" id="2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0, 0, 0, 0)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[node name="LevelGuide" type="CanvasLayer" unique_id=209606646]
+layer = 25
+script = ExtResource("1")
+
+[node name="Overlay" type="ColorRect" parent="." unique_id=958603654]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Panel" type="Panel" parent="." unique_id=841914541]
+anchors_preset = -1
+anchor_left = 0.085
+anchor_top = 0.23200001
+anchor_right = 0.085
+anchor_bottom = 0.23200001
+offset_left = 163.0
+offset_top = 246.4
+offset_right = 951.0
+offset_bottom = 585.4
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=537388304]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -243.0
+offset_top = -376.0
+offset_right = -231.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer" unique_id=986211960]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Guía del Nivel"
+horizontal_alignment = 1
+
+[node name="ContentContainer" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=728972794]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+
+[node name="GuideImage" type="TextureRect" parent="Panel/VBoxContainer/ContentContainer" unique_id=843978768]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+texture = ExtResource("2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextContainer" type="VBoxContainer" parent="Panel/VBoxContainer/ContentContainer" unique_id=2115836697]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 15
+
+[node name="GuideText" type="RichTextLabel" parent="Panel/VBoxContainer/ContentContainer/TextContainer" unique_id=1510234829]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "¡Bienvenido, amigo, amiga... o lo que sea que seas! 😎
+
+¡Bienvenido a [b]El Recolector de los Cielos[/b]! Tu misión es sencilla: [b]atrapar todos los minerales que puedas mientras esquivas esos meteoritos que intentan convertirte en polvo espacial.[/b]
+
+Ah, y presta atención a los minerales, colega. No todos valen lo mismo: [b]el metal es el que menos puntos da, el cobre da un poco más y el oro... bueno, el oro es el que más puntos da por ahora.[/b]
+
+Bueno, ya aprenderás. ¡Yo tampoco estaba prestando mucha atención cuando explicaron eso! ¡Vamos, recolector! ¡El cielo no se va a recolectar solo! 🚀"
+scroll_following = true
+
+[node name="ContinueButton" type="Button" parent="Panel/VBoxContainer" unique_id=1763032898]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Continuar"

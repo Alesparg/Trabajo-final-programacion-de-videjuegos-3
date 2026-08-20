@@ -16,6 +16,7 @@ var victory_menu: CanvasLayer
 var victory_score: Label
 var upgrade_menu: CanvasLayer
 var upgrade_system: Node
+var level_guide: CanvasLayer
 var deaths_value = 0
 var score_value = 0
 var time_remaining = MATCH_DURATION
@@ -24,16 +25,12 @@ var deaths_string = "Deaths: %0*d"
 var score_string = "Puntos: %0*d"
 
 func _ready():
-	# Inicializar sistema de mejoras
-	_initialize_upgrade_system()
-	
 	#no es el mejor modo, puede obtener una referencia directamente
 	var player_group = get_tree().get_nodes_in_group("player")
 	if player_group.size()>0:
 		spawn_point = $player_spawn.global_position
 		(player_group[0] as Player).im_dead.connect(_on_player_dead)
 		(player_group[0] as Player).health_changed.connect(_on_health_changed)
-		_apply_unlocked_upgrades(player_group[0] as Player)
 	$metal_box_spawner.metal_box_caught.connect(_on_metal_box_caught)
 	if has_node("esmeralda_spawner"):
 		$esmeralda_spawner.esmeralda_caught.connect(_on_esmeralda_caught)
@@ -55,6 +52,21 @@ func _ready():
 	if has_node("UpgradeMenu"):
 		upgrade_menu = $UpgradeMenu
 		upgrade_menu.hide()
+	if has_node("LevelGuide"):
+		level_guide = $LevelGuide
+		level_guide.hide()
+		level_guide.guide_closed.connect(_on_guide_closed)
+	
+	# Inicializar sistema de mejoras
+	_initialize_upgrade_system()
+	
+	# Aplicar mejoras desbloqueadas al jugador
+	if player_group.size()>0:
+		_apply_unlocked_upgrades(player_group[0] as Player)
+	
+	# Mostrar guía del nivel al inicio
+	_show_level_guide()
+	
 	$GameOverMenu/CenterContainer/VBoxContainer/Buttons/RetryButton.pressed.connect(_on_retry_pressed)
 	$GameOverMenu/CenterContainer/VBoxContainer/Buttons/ExitButton.pressed.connect(_on_exit_pressed)
 	if has_node("VictoryMenu"):
@@ -215,3 +227,46 @@ func _on_fase_espectral_collected():
 
 func _on_upgrade_selected(upgrade_id: String):
 	print("Mejora seleccionada: ", upgrade_id)
+
+func _show_level_guide():
+	if level_guide:
+		# Determinar el nivel actual verificando qué nodos existen
+		var has_esmeralda_spawner = has_node("esmeralda_spawner")
+		var has_meteor_largo_spawner = has_node("meteor_largo_spawner")
+		var has_diamante_spawner = has_node("diamante_spawner")
+		var has_meteor_negro_spawner = has_node("meteor_negro_spawner")
+		
+		print("Nivel 2 detectado (esmeralda): ", has_esmeralda_spawner)
+		print("Nivel 2 detectado (meteor_largo): ", has_meteor_largo_spawner)
+		print("Nivel 3 detectado (diamante): ", has_diamante_spawner)
+		print("Nivel 3 detectado (meteor_negro): ", has_meteor_negro_spawner)
+		
+		# Verificar primero nivel 3 (nivel más alto)
+		if has_diamante_spawner or has_meteor_negro_spawner:
+			var text = "🤖 RECO: ¡Estoy de vuelta colega! Y... traigo novedades. Bueno, creo que son novedades.\n\nTenemos un nuevo mineral: ¡el diamante! 💎 Vale nada menos que 100 puntos. ¡Cien! Eso es muchísimo. Así que si ves uno, ¡no lo pierdas!\n\nTambién apareció un nuevo power-up. ⚡ ¡Ahora puedes volverte completamente inmune al daño! Sí, leíste bien: durante un rato los meteoritos pueden golpearte y no te pasará nada. ¡Por fin una razón para dejar de esquivarlos!\n\n...Aunque probablemente sea mejor seguir esquivándolos.\n\nY hablando de meteoritos... ☄️ apareció uno MUY rápido. Cae tan rápido que apenas tendrás tiempo de verlo venir.\n\nAsí que si escuchas un ¡FUUUUSH!...\n\ncorre primero y pregunta después. 😎\n\n¡Buena suerte, recolector! ¡Y trata de no convertirte en polvo espacial! 🚀"
+			level_guide.set_guide_content("", text)
+		elif has_esmeralda_spawner or has_meteor_largo_spawner:
+			var text = "RECO: \"¡Volvió tu guía favorito! Bueno... el único que tienes.\n\nPrimero, ¡un nuevo mineral: la esmeralda! 💚 Creo que vale 80 puntos... o eran 70... Bueno, ¡vale un montón! Así que si ves una, ¡agárrala!\n\nTambién apareció un nuevo meteorito. ☄️ Hace bastante más daño que los normales. ¿Cuánto exactamente? Mmm... mejor no averiguarlo. 😅\n\nY por último... ¡un power-up de velocidad! ⚡ Ahora podrás moverte mucho más rápido. Perfecto para escapar de los meteoritos, llegar antes a los minerales o... ir a toda velocidad contra una pared.\n\nPero recomiendo las dos primeras opciones. 😎\n\n¡Buena suerte, recolector! 🚀"
+			level_guide.set_guide_content("", text)
+		else:
+			# Nivel 1: guía por defecto sin imagen
+			var text = "🤖 **RECO:** ¡Hola, hola! Soy **RECO**, tu guía oficial, experto en recolección, supervivencia y... bueno, en realidad no estoy seguro de tener el título para ninguna de esas cosas. 😎 ¡Pero vamos a intentarlo!
+
+¡Bienvenido, amigo, amiga... o lo que sea que seas! 😎 ¡Bienvenido a **El Recolector de los Cielos**! Tu misión es sencilla: **atrapar todos los minerales que puedas mientras esquivas esos meteoritos que intentan convertirte en polvo espacial.**
+
+Ah, y presta atención a los minerales, colega. No todos valen lo mismo: **el metal es el que menos puntos da, el cobre da un poco más y el oro... bueno, el oro es el que más puntos da por ahora.**
+
+Bueno, ya aprenderás. ¡Yo tampoco estaba prestando mucha atención cuando explicaron eso!
+
+¡Vamos, recolector! ¡El cielo no se va a recolectar solo! 🚀"
+			level_guide.set_guide_content("", text)
+		
+		level_guide.show_guide()
+		# Pausar el procesamiento del nivel
+		set_process(false)
+		set_physics_process(false)
+
+func _on_guide_closed():
+	# Reanudar el procesamiento del nivel
+	set_process(true)
+	set_physics_process(true)

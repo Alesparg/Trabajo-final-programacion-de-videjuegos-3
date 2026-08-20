@@ -31,6 +31,13 @@ var upgrades: Dictionary = {}
 
 func _ready():
 	_register_upgrades()
+	_reset_upgrades_on_game_start()
+
+func _reset_upgrades_on_game_start():
+	# Eliminar archivo de guardado al iniciar el juego para reiniciar mejoras
+	if FileAccess.file_exists(SAVE_FILE):
+		DirAccess.remove_absolute(SAVE_FILE)
+	# Cargar mejoras (estarán todas desbloqueadas)
 	load_upgrades()
 
 func _register_upgrades():
