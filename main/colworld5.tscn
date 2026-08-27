@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://colworld3scene"]
+[gd_scene format=3 uid="uid://bpcoiinffyyri"]
 
 [ext_resource type="Script" uid="uid://s6xxji1hupqd" path="res://main/colworld.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://s2s6hxvjn3m0" path="res://characters/player/player.tscn" id="2"]
@@ -11,8 +11,17 @@
 [ext_resource type="PackedScene" uid="uid://c8meteornegrospawner" path="res://objects/meteor_negro_spawner.tscn" id="10"]
 [ext_resource type="PackedScene" uid="uid://c8powerupspawner" path="res://objects/power_up_spawner.tscn" id="11"]
 [ext_resource type="PackedScene" uid="uid://c8faseespectralspawner" path="res://objects/fase_espectral_spawner.tscn" id="12"]
+[ext_resource type="PackedScene" uid="uid://c8meteorspawnercambiante" path="res://objects/meteor_cambiante_spawner.tscn" id="15"]
+[ext_resource type="PackedScene" uid="uid://c8gemaspawner" path="res://objects/gema_spawner.tscn" id="16"]
+[ext_resource type="PackedScene" uid="uid://c8powerupdoblespawner" path="res://objects/power_up_doble_spawner.tscn" id="17"]
 [ext_resource type="PackedScene" uid="uid://c8upgrademenu" path="res://ui/upgrade_menu.tscn" id="13"]
 [ext_resource type="PackedScene" uid="uid://c8levelguide" path="res://ui/level_guide.tscn" id="14"]
+[ext_resource type="PackedScene" uid="uid://c8bloqueobstaculo" path="res://objects/bloque_obstaculo.tscn" id="18"]
+[ext_resource type="PackedScene" uid="uid://c8bloqueobstaculopequeno" path="res://objects/bloque_obstaculo_pequeno.tscn" id="19"]
+[ext_resource type="PackedScene" uid="uid://c8bloqueobstaculogrande" path="res://objects/bloque_obstaculo_grande.tscn" id="20"]
+[ext_resource type="PackedScene" uid="uid://c8bloqueobstaculoverticalpequeno" path="res://objects/bloque_obstaculo_vertical_pequeno.tscn" id="21"]
+[ext_resource type="PackedScene" uid="uid://c8bloqueobstaculoverticalmediano" path="res://objects/bloque_obstaculo_vertical_mediano.tscn" id="22"]
+[ext_resource type="PackedScene" uid="uid://c8bloqueobstaculoverticalgrande" path="res://objects/bloque_obstaculo_vertical_grande.tscn" id="23"]
 
 [sub_resource type="Gradient" id="Gradient_c13v1"]
 colors = PackedColorArray(0, 0, 0, 1, 0.176419, 0.176419, 0.176419, 1)
@@ -221,6 +230,145 @@ texture_repeat = 2
 [node name="power_up_spawner" parent="." instance=ExtResource("11")]
 
 [node name="fase_espectral_spawner" parent="." instance=ExtResource("12")]
+
+[node name="meteor_cambiante_spawner" parent="." instance=ExtResource("15")]
+
+[node name="gema_spawner" parent="." instance=ExtResource("16")]
+
+[node name="power_up_doble_spawner" parent="." instance=ExtResource("17")]
+
+[node name="bloque_obstaculo_1" parent="." instance=ExtResource("18")]
+position = Vector2(300, 930)
+
+[node name="bloque_obstaculo_2" parent="." instance=ExtResource("18")]
+position = Vector2(500, 930)
+
+[node name="bloque_obstaculo_3" parent="." instance=ExtResource("18")]
+position = Vector2(700, 930)
+
+[node name="bloque_obstaculo_4" parent="." instance=ExtResource("18")]
+position = Vector2(400, 930)
+
+[node name="bloque_obstaculo_5" parent="." instance=ExtResource("18")]
+position = Vector2(600, 930)
+
+[node name="bloque_obstaculo_pequeno_1" parent="." instance=ExtResource("19")]
+position = Vector2(250, 930)
+
+[node name="bloque_obstaculo_pequeno_2" parent="." instance=ExtResource("19")]
+position = Vector2(350, 930)
+
+[node name="bloque_obstaculo_pequeno_3" parent="." instance=ExtResource("19")]
+position = Vector2(550, 930)
+
+[node name="bloque_obstaculo_pequeno_4" parent="." instance=ExtResource("19")]
+position = Vector2(650, 930)
+
+[node name="bloque_obstaculo_pequeno_5" parent="." instance=ExtResource("19")]
+position = Vector2(750, 930)
+
+[node name="bloque_obstaculo_grande_1" parent="." instance=ExtResource("20")]
+position = Vector2(450, 930)
+
+[node name="bloque_obstaculo_grande_2" parent="." instance=ExtResource("20")]
+position = Vector2(800, 930)
+
+[node name="bloque_obstaculo_6" parent="." instance=ExtResource("18")]
+position = Vector2(150, 930)
+
+[node name="bloque_obstaculo_7" parent="." instance=ExtResource("18")]
+position = Vector2(200, 930)
+
+[node name="bloque_obstaculo_8" parent="." instance=ExtResource("18")]
+position = Vector2(850, 930)
+
+[node name="bloque_obstaculo_9" parent="." instance=ExtResource("18")]
+position = Vector2(900, 930)
+
+[node name="bloque_obstaculo_pequeno_6" parent="." instance=ExtResource("19")]
+position = Vector2(180, 930)
+
+[node name="bloque_obstaculo_pequeno_7" parent="." instance=ExtResource("19")]
+position = Vector2(230, 930)
+
+[node name="bloque_obstaculo_pequeno_8" parent="." instance=ExtResource("19")]
+position = Vector2(820, 930)
+
+[node name="bloque_obstaculo_pequeno_9" parent="." instance=ExtResource("19")]
+position = Vector2(870, 930)
+
+[node name="bloque_obstaculo_grande_3" parent="." instance=ExtResource("20")]
+position = Vector2(100, 930)
+
+[node name="bloque_obstaculo_grande_4" parent="." instance=ExtResource("20")]
+position = Vector2(950, 930)
+
+[node name="bloque_obstaculo_vertical_pequeno_1" parent="." instance=ExtResource("21")]
+position = Vector2(275, 900)
+
+[node name="bloque_obstaculo_vertical_pequeno_2" parent="." instance=ExtResource("21")]
+position = Vector2(475, 900)
+
+[node name="bloque_obstaculo_vertical_pequeno_3" parent="." instance=ExtResource("21")]
+position = Vector2(675, 900)
+
+[node name="bloque_obstaculo_vertical_pequeno_4" parent="." instance=ExtResource("21")]
+position = Vector2(825, 900)
+
+[node name="VictoryMenu" type="CanvasLayer" parent="." unique_id=888888888]
+layer = 10
+visible = false
+
+[node name="Overlay" type="ColorRect" parent="VictoryMenu" unique_id=777777777]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.3, 0.1, 0.85)
+
+[node name="CenterContainer" type="CenterContainer" parent="VictoryMenu" unique_id=666666666]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VictoryMenu/CenterContainer" unique_id=555555555]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Title" type="Label" parent="VictoryMenu/CenterContainer/VBoxContainer" unique_id=444444444]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 1, 0.3, 1)
+theme_override_font_sizes/font_size = 48
+text = "¡VICTORIA FINAL!"
+horizontal_alignment = 1
+
+[node name="RecoMessage" type="Label" parent="VictoryMenu/CenterContainer/VBoxContainer" unique_id=888888889]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = ""
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ScoreLabel" type="Label" parent="VictoryMenu/CenterContainer/VBoxContainer" unique_id=333333333]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.5, 1)
+theme_override_font_sizes/font_size = 28
+text = "Puntuación: 0"
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="VictoryMenu/CenterContainer/VBoxContainer" unique_id=222222222]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="ExitButton" type="Button" parent="VictoryMenu/CenterContainer/VBoxContainer/Buttons" unique_id=111111111]
+custom_minimum_size = Vector2(160, 44)
+layout_mode = 2
+text = "Salir"
 
 [node name="UpgradeMenu" parent="." instance=ExtResource("13")]
 

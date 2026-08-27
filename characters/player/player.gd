@@ -65,6 +65,18 @@ func activate_spectral_phase():
 func is_invulnerable():
 	return is_spectral
 
+# Sistema de puntos dobles
+var double_points_timer: float = 0.0
+var double_points_duration: float = 10.0
+var has_double_points: bool = false
+
+func activate_double_points():
+	has_double_points = true
+	double_points_timer = double_points_duration
+
+func has_double_points_active():
+	return has_double_points
+
 func _ready():
 	if Engine.is_editor_hint(): #para que haga draw sólo en tool mode
 		jump_curve.resize(5)
@@ -93,6 +105,12 @@ func _physics_process(delta):
 		spectral_phase_timer -= delta
 		if spectral_phase_timer <= 0.0:
 			is_spectral = false
+	
+	# Manejar timer de puntos dobles
+	if has_double_points:
+		double_points_timer -= delta
+		if double_points_timer <= 0.0:
+			has_double_points = false
 	
 	# Create forces
 	var accel = Vector2(0, GRAVITY)

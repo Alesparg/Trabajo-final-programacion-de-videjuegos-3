@@ -13,6 +13,8 @@ func _ready():
 	$LevelSelectPanel/VBoxContainer/LevelButtons/Level1Button.pressed.connect(_on_level1_pressed)
 	$LevelSelectPanel/VBoxContainer/LevelButtons/Level2Button.pressed.connect(_on_level2_pressed)
 	$LevelSelectPanel/VBoxContainer/LevelButtons/Level3Button.pressed.connect(_on_level3_pressed)
+	$LevelSelectPanel/VBoxContainer/LevelButtons/Level4Button.pressed.connect(_on_level4_pressed)
+	$LevelSelectPanel/VBoxContainer/LevelButtons/Level5Button.pressed.connect(_on_level5_pressed)
 	$LevelSelectPanel/VBoxContainer/BackButton.pressed.connect(_on_back_pressed)
 
 func _on_play_pressed():
@@ -46,3 +48,9 @@ func _on_level2_pressed():
 
 func _on_level3_pressed():
 	get_tree().change_scene_to_file("res://main/colworld3.tscn")
+
+func _on_level4_pressed():
+	get_tree().change_scene_to_file("res://main/colworld4.tscn")
+
+func _on_level5_pressed():
+	get_tree().change_scene_to_file("res://main/colworld5.tscn")

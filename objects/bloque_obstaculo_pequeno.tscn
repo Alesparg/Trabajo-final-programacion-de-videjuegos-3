@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://d1nw1ufkp8oea"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bloque_pequeno"]
+size = Vector2(32, 16)
+
+[node name="bloque_obstaculo_pequeno" type="StaticBody2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -16.0
+offset_top = -8.0
+offset_right = 16.0
+offset_bottom = 8.0
+color = Color(0.3, 0.3, 0.3, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bloque_pequeno")

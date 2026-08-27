@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://colworld3scene"]
+[gd_scene format=3 uid="uid://bgdfee2tw20qc"]
 
 [ext_resource type="Script" uid="uid://s6xxji1hupqd" path="res://main/colworld.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://s2s6hxvjn3m0" path="res://characters/player/player.tscn" id="2"]
@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://c8meteornegrospawner" path="res://objects/meteor_negro_spawner.tscn" id="10"]
 [ext_resource type="PackedScene" uid="uid://c8powerupspawner" path="res://objects/power_up_spawner.tscn" id="11"]
 [ext_resource type="PackedScene" uid="uid://c8faseespectralspawner" path="res://objects/fase_espectral_spawner.tscn" id="12"]
+[ext_resource type="PackedScene" uid="uid://c8meteorspawnercambiante" path="res://objects/meteor_cambiante_spawner.tscn" id="15"]
+[ext_resource type="PackedScene" uid="uid://c8gemaspawner" path="res://objects/gema_spawner.tscn" id="16"]
+[ext_resource type="PackedScene" uid="uid://c8powerupdoblespawner" path="res://objects/power_up_doble_spawner.tscn" id="17"]
 [ext_resource type="PackedScene" uid="uid://c8upgrademenu" path="res://ui/upgrade_menu.tscn" id="13"]
 [ext_resource type="PackedScene" uid="uid://c8levelguide" path="res://ui/level_guide.tscn" id="14"]
 
@@ -221,6 +224,12 @@ texture_repeat = 2
 [node name="power_up_spawner" parent="." instance=ExtResource("11")]
 
 [node name="fase_espectral_spawner" parent="." instance=ExtResource("12")]
+
+[node name="meteor_cambiante_spawner" parent="." instance=ExtResource("15")]
+
+[node name="gema_spawner" parent="." instance=ExtResource("16")]
+
+[node name="power_up_doble_spawner" parent="." instance=ExtResource("17")]
 
 [node name="UpgradeMenu" parent="." instance=ExtResource("13")]
 
