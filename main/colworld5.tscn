@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://c8levelguide" path="res://ui/level_guide.tscn" id="14"]
 [ext_resource type="PackedScene" uid="uid://c8bloqueobstaculo" path="res://objects/bloque_obstaculo.tscn" id="18"]
 [ext_resource type="PackedScene" uid="uid://c8bloqueobstaculopequeno" path="res://objects/bloque_obstaculo_pequeno.tscn" id="19"]
+[ext_resource type="AudioStream" uid="uid://mqmthf7q2o8r" path="res://audio/cancion_nivel_5.ogg" id="24"]
 [ext_resource type="PackedScene" uid="uid://c8bloqueobstaculogrande" path="res://objects/bloque_obstaculo_grande.tscn" id="20"]
 [ext_resource type="PackedScene" uid="uid://c8bloqueobstaculoverticalpequeno" path="res://objects/bloque_obstaculo_vertical_pequeno.tscn" id="21"]
 [ext_resource type="PackedScene" uid="uid://c8bloqueobstaculoverticalmediano" path="res://objects/bloque_obstaculo_vertical_mediano.tscn" id="22"]
@@ -87,6 +88,11 @@ _data = {
 [node name="colworld" type="Node2D" unique_id=59333006]
 script = ExtResource("1")
 player_scene = ExtResource("2")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24")
+volume_db = 0.0
+autoplay = false
 
 [node name="player" parent="." unique_id=155957934 instance=ExtResource("2")]
 position = Vector2(144.134, 874.312)

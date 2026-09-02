@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c8powerupspawner" path="res://objects/power_up_spawner.tscn" id="9"]
 [ext_resource type="PackedScene" uid="uid://c8upgrademenu" path="res://ui/upgrade_menu.tscn" id="10"]
 [ext_resource type="PackedScene" uid="uid://c8levelguide" path="res://ui/level_guide.tscn" id="11"]
+[ext_resource type="AudioStream" uid="uid://cl8vfwjth1m2b" path="res://audio/cancion_nivel_2.ogg" id="12"]
 
 [sub_resource type="Gradient" id="Gradient_c13v1"]
 colors = PackedColorArray(0, 0, 0, 1, 0.176419, 0.176419, 0.176419, 1)
@@ -75,6 +76,11 @@ _data = {
 [node name="colworld" type="Node2D" unique_id=59333006]
 script = ExtResource("1")
 player_scene = ExtResource("2")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12")
+volume_db = 0.0
+autoplay = false
 
 [node name="player" parent="." unique_id=155957934 instance=ExtResource("2")]
 position = Vector2(144.134, 874.312)

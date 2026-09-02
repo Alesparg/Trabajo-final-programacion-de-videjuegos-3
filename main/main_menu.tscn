@@ -47,33 +47,38 @@ theme_override_font_sizes/font_size = 40
 text = "El recolector de cielo"
 horizontal_alignment = 1
 
-[node name="Buttons" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+[node name="Buttons" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
-theme_override_constants/separation = 24
+theme_override_constants/separation = 16
 
 [node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer/Buttons"]
-custom_minimum_size = Vector2(140, 44)
+custom_minimum_size = Vector2(200, 44)
 layout_mode = 2
 text = "Jugar"
 
 [node name="AboutButton" type="Button" parent="CenterContainer/VBoxContainer/Buttons"]
-custom_minimum_size = Vector2(140, 44)
+custom_minimum_size = Vector2(200, 44)
 layout_mode = 2
 text = "De qué trata"
 
 [node name="ControlsButton" type="Button" parent="CenterContainer/VBoxContainer/Buttons"]
-custom_minimum_size = Vector2(140, 44)
+custom_minimum_size = Vector2(200, 44)
 layout_mode = 2
 text = "Controles"
 
 [node name="LevelSelectButton" type="Button" parent="CenterContainer/VBoxContainer/Buttons"]
-custom_minimum_size = Vector2(140, 44)
+custom_minimum_size = Vector2(200, 44)
 layout_mode = 2
 text = "Niveles"
 
+[node name="SoundButton" type="Button" parent="CenterContainer/VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(200, 44)
+layout_mode = 2
+text = "Sonido"
+
 [node name="ExitButton" type="Button" parent="CenterContainer/VBoxContainer/Buttons"]
-custom_minimum_size = Vector2(140, 44)
+custom_minimum_size = Vector2(200, 44)
 layout_mode = 2
 text = "Salir"
 
@@ -170,10 +175,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -150.0
-offset_right = 250.0
-offset_bottom = 150.0
+offset_left = -350.0
+offset_top = -200.0
+offset_right = 350.0
+offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_black")
@@ -224,6 +229,56 @@ layout_mode = 2
 text = "Nivel 5"
 
 [node name="BackButton" type="Button" parent="LevelSelectPanel/VBoxContainer"]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+text = "Volver"
+
+[node name="SoundPanel" type="Panel" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -150.0
+offset_right = 250.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_black2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SoundPanel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="SoundPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "Volumen"
+horizontal_alignment = 1
+
+[node name="VolumeLabel" type="Label" parent="SoundPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.75, 0.82, 1)
+theme_override_font_sizes/font_size = 16
+text = "Volumen de música"
+horizontal_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="SoundPanel/VBoxContainer"]
+custom_minimum_size = Vector2(300, 24)
+layout_mode = 2
+min_value = 0.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="BackButton" type="Button" parent="SoundPanel/VBoxContainer"]
 custom_minimum_size = Vector2(120, 40)
 layout_mode = 2
 text = "Volver"

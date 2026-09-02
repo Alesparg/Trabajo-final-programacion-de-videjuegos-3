@@ -41,7 +41,8 @@ var spawn_point = Vector2()
 @onready var game_over_menu: CanvasLayer = $GameOverMenu
 @onready var game_over_score: Label = $GameOverMenu/CenterContainer/VBoxContainer/ScoreLabel
 @onready var game_over_reco_message: Label = $GameOverMenu/CenterContainer/VBoxContainer/RecoMessage
-@onready var victory_reco_message: Label = $VictoryMenu/CenterContainer/VBoxContainer/RecoMessage
+@onready var background_music: AudioStreamPlayer = $BackgroundMusic
+var victory_reco_message: Label
 var victory_menu: CanvasLayer
 var victory_score: Label
 var upgrade_menu: CanvasLayer
@@ -82,6 +83,8 @@ func _ready():
 	if has_node("VictoryMenu"):
 		victory_menu = $VictoryMenu
 		victory_score = $VictoryMenu/CenterContainer/VBoxContainer/ScoreLabel
+		if has_node("VictoryMenu/CenterContainer/VBoxContainer/RecoMessage"):
+			victory_reco_message = $VictoryMenu/CenterContainer/VBoxContainer/RecoMessage
 		victory_menu.hide()
 	if has_node("UpgradeMenu"):
 		upgrade_menu = $UpgradeMenu
@@ -442,3 +445,7 @@ func _on_guide_closed():
 	# Reanudar el procesamiento del nivel
 	set_process(true)
 	set_physics_process(true)
+	
+	# Iniciar música de fondo
+	if background_music:
+		background_music.play()

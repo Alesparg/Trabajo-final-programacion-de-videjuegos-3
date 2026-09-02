@@ -72,27 +72,35 @@ visible = false
 [node name="Body" type="Node2D" parent="."]
 
 [node name="Head" type="Polygon2D" parent="Body"]
-color = Color(0.9, 0.7, 0.5, 1)
+color = Color(0.7, 0.75, 0.8, 1)
 polygon = PackedVector2Array(-8, -25, 8, -25, 8, -9, -8, -9)
 
+[node name="Eye" type="Polygon2D" parent="Body/Head"]
+color = Color(0, 1, 0.8, 1)
+polygon = PackedVector2Array(-3, -20, 3, -20, 3, -15, -3, -15)
+
 [node name="Torso" type="Polygon2D" parent="Body"]
-color = Color(0.3, 0.5, 0.8, 1)
+color = Color(0.4, 0.45, 0.5, 1)
 polygon = PackedVector2Array(-7, -8, 7, -8, 6, 10, -6, 10)
 
+[node name="ChestLight" type="Polygon2D" parent="Body/Torso"]
+color = Color(0, 0.8, 1, 1)
+polygon = PackedVector2Array(-2, -4, 2, -4, 2, 0, -2, 0)
+
 [node name="LeftArm" type="Polygon2D" parent="Body"]
-color = Color(0.9, 0.7, 0.5, 1)
+color = Color(0.6, 0.65, 0.7, 1)
 polygon = PackedVector2Array(-12, -7, -7, -7, -7, 5, -12, 5)
 
 [node name="RightArm" type="Polygon2D" parent="Body"]
-color = Color(0.9, 0.7, 0.5, 1)
+color = Color(0.6, 0.65, 0.7, 1)
 polygon = PackedVector2Array(7, -7, 12, -7, 12, 5, 7, 5)
 
 [node name="LeftLeg" type="Polygon2D" parent="Body"]
-color = Color(0.2, 0.3, 0.5, 1)
+color = Color(0.35, 0.4, 0.45, 1)
 polygon = PackedVector2Array(-5, 10, -2, 10, -2, 22, -5, 22)
 
 [node name="RightLeg" type="Polygon2D" parent="Body"]
-color = Color(0.2, 0.3, 0.5, 1)
+color = Color(0.35, 0.4, 0.45, 1)
 polygon = PackedVector2Array(2, 10, 5, 10, 5, 22, 2, 22)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
