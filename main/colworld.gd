@@ -45,9 +45,12 @@ var spawn_point = Vector2()
 var victory_reco_message: Label
 var victory_menu: CanvasLayer
 var victory_score: Label
+var victory_save_button: Button
 var upgrade_menu: CanvasLayer
 var upgrade_system: Node
 var level_guide: CanvasLayer
+var save_system: Node
+var current_level: int = 1
 var deaths_value = 0
 var score_value = 0
 var time_remaining = MATCH_DURATION
@@ -56,6 +59,23 @@ var deaths_string = "Deaths: %0*d"
 var score_string = "Puntos: %0*d"
 
 func _ready():
+	# Cargar sistema de guardado
+	save_system = preload("res://save_system.gd").new()
+	add_child(save_system)
+	
+	# Determinar nivel actual basado en el nombre de la escena
+	var scene_name = get_tree().current_scene.scene_file_path
+	if "colworld.tscn" in scene_name and "colworld2" not in scene_name:
+		current_level = 1
+	elif "colworld2.tscn" in scene_name:
+		current_level = 2
+	elif "colworld3.tscn" in scene_name:
+		current_level = 3
+	elif "colworld4.tscn" in scene_name:
+		current_level = 4
+	elif "colworld5.tscn" in scene_name:
+		current_level = 5
+	
 	#no es el mejor modo, puede obtener una referencia directamente
 	var player_group = get_tree().get_nodes_in_group("player")
 	if player_group.size()>0:
@@ -85,6 +105,9 @@ func _ready():
 		victory_score = $VictoryMenu/CenterContainer/VBoxContainer/ScoreLabel
 		if has_node("VictoryMenu/CenterContainer/VBoxContainer/RecoMessage"):
 			victory_reco_message = $VictoryMenu/CenterContainer/VBoxContainer/RecoMessage
+		if has_node("VictoryMenu/CenterContainer/VBoxContainer/Buttons/SaveButton"):
+			victory_save_button = $VictoryMenu/CenterContainer/VBoxContainer/Buttons/SaveButton
+			victory_save_button.pressed.connect(_on_save_pressed)
 		victory_menu.hide()
 	if has_node("UpgradeMenu"):
 		upgrade_menu = $UpgradeMenu
@@ -449,3 +472,12 @@ func _on_guide_closed():
 	# Iniciar música de fondo
 	if background_music:
 		background_music.play()
+
+func _on_save_pressed():
+	# Guardar el progreso actual
+	var next_level = current_level + 1
+	if next_level > 5:
+		next_level = 5  # Si ya está en el nivel 5, mantener en 5
+	
+	save_system.save_game(next_level, score_value, deaths_value)
+	print("Partida guardada: Nivel ", next_level, ", Puntos: ", score_value, ", Muertes: ", deaths_value)

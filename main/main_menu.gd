@@ -3,13 +3,27 @@ extends Control
 @export var game_scene: PackedScene
 
 var music_volume: float = 1.0
+var save_system: Node
 
 func _ready():
+	# Cargar sistema de guardado
+	save_system = preload("res://save_system.gd").new()
+	add_child(save_system)
+	
 	# Cargar volumen guardado (usar bus Master índice 0)
 	music_volume = AudioServer.get_bus_volume_db(0)
 	$SoundPanel/VBoxContainer/VolumeSlider.value = db_to_linear(music_volume)
 	
-	$CenterContainer/VBoxContainer/Buttons/PlayButton.pressed.connect(_on_play_pressed)
+	# Verificar si hay partida guardada
+	if save_system.has_save():
+		$CenterContainer/VBoxContainer/Buttons/ContinueButton.visible = true
+		$CenterContainer/VBoxContainer/Buttons/NewGameButton.text = "Nueva Partida"
+	else:
+		$CenterContainer/VBoxContainer/Buttons/ContinueButton.visible = false
+		$CenterContainer/VBoxContainer/Buttons/NewGameButton.text = "Jugar"
+	
+	$CenterContainer/VBoxContainer/Buttons/ContinueButton.pressed.connect(_on_continue_pressed)
+	$CenterContainer/VBoxContainer/Buttons/NewGameButton.pressed.connect(_on_new_game_pressed)
 	$CenterContainer/VBoxContainer/Buttons/AboutButton.pressed.connect(_on_about_pressed)
 	$CenterContainer/VBoxContainer/Buttons/ControlsButton.pressed.connect(_on_controls_pressed)
 	$CenterContainer/VBoxContainer/Buttons/LevelSelectButton.pressed.connect(_on_level_select_pressed)
@@ -26,11 +40,23 @@ func _ready():
 	$LevelSelectPanel/VBoxContainer/LevelButtons/Level5Button.pressed.connect(_on_level5_pressed)
 	$LevelSelectPanel/VBoxContainer/BackButton.pressed.connect(_on_back_pressed)
 
-func _on_play_pressed():
-	if game_scene:
-		get_tree().change_scene_to_packed(game_scene)
-	else:
-		get_tree().change_scene_to_file("res://main/colworld.tscn")
+func _on_continue_pressed():
+	var save_data = save_system.load_game()
+	if save_data:
+		var level = save_data["current_level"]
+		match level:
+			1: get_tree().change_scene_to_file("res://main/colworld.tscn")
+			2: get_tree().change_scene_to_file("res://main/colworld2.tscn")
+			3: get_tree().change_scene_to_file("res://main/colworld3.tscn")
+			4: get_tree().change_scene_to_file("res://main/colworld4.tscn")
+			5: get_tree().change_scene_to_file("res://main/colworld5.tscn")
+
+func _on_new_game_pressed():
+	# Borrar partida guardada si existe
+	save_system.delete_save()
+	
+	# Iniciar nueva partida desde el nivel 1
+	get_tree().change_scene_to_file("res://main/colworld.tscn")
 
 func _on_exit_pressed():
 	get_tree().quit()

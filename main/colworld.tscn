@@ -243,6 +243,11 @@ layout_mode = 2
 theme_override_constants/separation = 24
 alignment = 1
 
+[node name="SaveButton" type="Button" parent="VictoryMenu/CenterContainer/VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(160, 44)
+layout_mode = 2
+text = "Guardar"
+
 [node name="Level2Button" type="Button" parent="VictoryMenu/CenterContainer/VBoxContainer/Buttons" unique_id=111111111]
 custom_minimum_size = Vector2(160, 44)
 layout_mode = 2

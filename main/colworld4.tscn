@@ -212,6 +212,63 @@ custom_minimum_size = Vector2(160, 44)
 layout_mode = 2
 text = "Salir"
 
+[node name="VictoryMenu" type="CanvasLayer" parent="."]
+layer = 10
+visible = false
+
+[node name="Overlay" type="ColorRect" parent="VictoryMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.3, 0.1, 0.85)
+
+[node name="CenterContainer" type="CenterContainer" parent="VictoryMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VictoryMenu/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Title" type="Label" parent="VictoryMenu/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 1, 0.3, 1)
+theme_override_font_sizes/font_size = 42
+text = "¡Ganaste!"
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="VictoryMenu/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.5, 1)
+theme_override_font_sizes/font_size = 28
+text = "Puntuación: 0"
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="VictoryMenu/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="SaveButton" type="Button" parent="VictoryMenu/CenterContainer/VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(160, 44)
+layout_mode = 2
+text = "Guardar"
+
+[node name="Level5Button" type="Button" parent="VictoryMenu/CenterContainer/VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(160, 44)
+layout_mode = 2
+text = "Jugar Nivel 5"
+
+[node name="ExitButton" type="Button" parent="VictoryMenu/CenterContainer/VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(160, 44)
+layout_mode = 2
+text = "Salir"
+
 [node name="level" parent="." unique_id=1095493898 instance=ExtResource("4")]
 texture_repeat = 2
 
