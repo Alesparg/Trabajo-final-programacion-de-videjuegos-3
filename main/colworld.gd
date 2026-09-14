@@ -124,8 +124,11 @@ func _ready():
 	if player_group.size()>0:
 		_apply_unlocked_upgrades(player_group[0] as Player)
 	
-	# Mostrar guía del nivel al inicio
-	_show_level_guide()
+	# Pausar el juego al inicio y mostrar la guía
+	if level_guide:
+		_show_level_guide()
+		set_process(false)
+		set_physics_process(false)
 	
 	$GameOverMenu/CenterContainer/VBoxContainer/Buttons/RetryButton.pressed.connect(_on_retry_pressed)
 	$GameOverMenu/CenterContainer/VBoxContainer/Buttons/ExitButton.pressed.connect(_on_exit_pressed)
@@ -134,6 +137,10 @@ func _ready():
 			$VictoryMenu/CenterContainer/VBoxContainer/Buttons/Level2Button.pressed.connect(_on_level2_pressed)
 		if has_node("VictoryMenu/CenterContainer/VBoxContainer/Buttons/Level3Button"):
 			$VictoryMenu/CenterContainer/VBoxContainer/Buttons/Level3Button.pressed.connect(_on_level3_pressed)
+		if has_node("VictoryMenu/CenterContainer/VBoxContainer/Buttons/Level4Button"):
+			$VictoryMenu/CenterContainer/VBoxContainer/Buttons/Level4Button.pressed.connect(_on_level4_pressed)
+		if has_node("VictoryMenu/CenterContainer/VBoxContainer/Buttons/Level5Button"):
+			$VictoryMenu/CenterContainer/VBoxContainer/Buttons/Level5Button.pressed.connect(_on_level5_pressed)
 		if has_node("VictoryMenu/CenterContainer/VBoxContainer/Buttons/ExitButton"):
 			$VictoryMenu/CenterContainer/VBoxContainer/Buttons/ExitButton.pressed.connect(_on_exit_pressed)
 	#Si no se carga como placeholder
@@ -255,6 +262,12 @@ func _on_level2_pressed():
 
 func _on_level3_pressed():
 	_show_upgrade_menu_before_level_change("res://main/colworld3.tscn")
+
+func _on_level4_pressed():
+	_show_upgrade_menu_before_level_change("res://main/colworld4.tscn")
+
+func _on_level5_pressed():
+	_show_upgrade_menu_before_level_change("res://main/colworld5.tscn")
 
 func _show_upgrade_menu_before_level_change(next_level_path: String):
 	if upgrade_menu and upgrade_system:
